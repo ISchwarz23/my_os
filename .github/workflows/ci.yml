@@ -34,6 +34,11 @@ jobs:
             - name: Check formatting
               run: cargo fmt --check
             - name: Build kernel
-              run: cargo build
+              run: cargo build --release
             - name: Build bootimage
-              run: cargo bootimage
+              run: cargo bootimage --release
+            - name: Upload bootimage artifact
+              uses: actions/upload-artifact@v4
+              with:
+                name: bootimage
+                path: "target/x86_64-my_os/release/*.bin"
