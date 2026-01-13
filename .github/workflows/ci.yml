@@ -30,7 +30,11 @@ jobs:
                   rustup component add rust-src
                   rustup component add rustfmt
                   rustup component add llvm-tools-preview
-            - name: cargo fmt
+            - name: Check formatting
               run: cargo fmt --check
-            - name: cargo buid
+            - name: Build kernel
               run: cargo build
+            - name: Build bootimage
+              run: |
+                  cargo install bootimage
+                  cargo bootimage
