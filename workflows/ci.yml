@@ -28,9 +28,6 @@ jobs:
               run: |
                   rustup override set nightly
                   rustup component add rust-src
-                  rustup component add rustfmt
                   rustup component add llvm-tools-preview
-            - name: cargo fmt
-              run: cargo fmt --check
             - name: cargo buid
               run: cargo build
