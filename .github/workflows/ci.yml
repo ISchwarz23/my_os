@@ -30,8 +30,7 @@ jobs:
                   rustup component add rust-src
                   rustup component add rustfmt
                   rustup component add llvm-tools-preview
-                  cargo install --list
-                  cargo install --list | grep -q '^bootimage' || cargo install bootimage
+                  cargo install bootimage --force
             - name: Check formatting
               run: cargo fmt --check
             - name: Build kernel
